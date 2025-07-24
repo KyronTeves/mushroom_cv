@@ -1,9 +1,10 @@
-from picamera2 import Picamera2
-from datetime import datetime
 import os
+import subprocess
 import time
+from datetime import datetime
+
 import cv2
-import subprocess  
+from picamera2 import Picamera2
 
 # Set folder to save images
 save_folder = "/home/kyron/Documents/dataset_images"
@@ -26,7 +27,7 @@ while True:
     frame = picam2.capture_array()  # Get current frame
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)  # Fix color issue
     cv2.imshow("Camera Preview", frame)  # Show live feed
-    if cv2.waitKey(1) == ord('q'):  # Press 'q' to exit preview
+    if cv2.waitKey(1) == ord("q"):  # Press 'q' to exit preview
         break
 
 cv2.destroyAllWindows()  # Close preview window
@@ -39,14 +40,14 @@ cv2.destroyAllWindows()  # Close preview window
 
 # Capture the image
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-filename = f"dataset_{timestamp}.jpg"
-file_path = os.path.join(save_folder, filename)
+FILENAME = f"dataset_{timestamp}.jpg"
+file_path = os.path.join(save_folder, FILENAME)
 picam2.capture_file(file_path)
 
 # Stop camera
 picam2.stop()
 
 # Open the saved image in the default image viewer
-subprocess.run(["xdg-open", file_path])
+subprocess.run(["xdg-open", file_path], check=True)
 
 print(f"Image saved and opened: {file_path}")

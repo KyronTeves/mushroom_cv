@@ -11,8 +11,8 @@ picam2.preview_configuration.align()
 picam2.configure("preview")
 picam2.start()
 model = YOLO("best.pt")
-my_file = open("mushroom.txt", "r", encoding="utf-8")
-data = my_file.read()
+with open("mushroom.txt", "r", encoding="utf-8") as my_file:
+    data = my_file.read()
 class_list = data.split("\n")
 COUNT = 0
 while True:
