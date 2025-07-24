@@ -1,3 +1,8 @@
+"""takePicture.py.
+
+This script captures a still image from the camera and saves it to a specified folder.
+
+"""
 import os
 import subprocess
 import time
