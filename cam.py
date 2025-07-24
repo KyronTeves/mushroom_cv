@@ -1,3 +1,10 @@
+"""cam.py.
+
+Main script to capture images from a camera, process them using a YOLO model,
+and display the results in real-time. It uses the Picamera2 library for camera
+interaction and OpenCV for image processing and display.
+
+"""
 import cv2
 import cvzone
 import numpy as np
