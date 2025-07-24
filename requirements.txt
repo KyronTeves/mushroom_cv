@@ -1,0 +1,6 @@
+opencv-python
+picamera2
+pandas
+ultralytics
+cvzone
+numpy
